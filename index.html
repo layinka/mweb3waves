@@ -1,0 +1,32 @@
+<!doctype html>
+<html ng-app="introApp">
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="app.css">
+  </head>
+  <body>
+    <h2>Waves Test 0.0.1</h2>
+    <div ng-controller="ListController as list">
+      <span>{{list.remaining()}} of {{list.todos.length}} remaining</span>
+      [ <a href="" ng-click="list.archive()">archive</a> ]
+      <ul class="unstyled">
+        <li ng-repeat="todo in list.todos">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </label>
+        </li>
+      </ul>
+      <form ng-submit="list.addTodo()">
+        <input type="text" ng-model="list.todoText"  size="30"
+               placeholder="add new todo here">
+        <input class="btn-primary" type="submit" value="add">
+      </form>
+
+      <p></p>
+
+      <button ng-click="list.authFunc()">Auth Waves</button>
+    </div>
+  </body>
+</html>
